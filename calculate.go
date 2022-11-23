@@ -32,7 +32,14 @@ func main() {
 	var x, plus, y string
 	fmt.Scanln(&x, &plus, &y)
 	num1, num2 := parseInt(x, y)
-	if plus == "+" {
+	switch plus {
+	case "+":
 		fmt.Println(add(num1, num2))
+	case "-":
+		fmt.Println(sub(num1, num2))
+	case "*":
+		fmt.Println(mul(num1, num2))
+	case "/":
+		fmt.Println(div(num1, num2))
 	}
 }
