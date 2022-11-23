@@ -1,2 +1,3 @@
 # KataCalculate
-тестовое задание Kata Academy
+## Тестовое задание Kata Academy
+___
