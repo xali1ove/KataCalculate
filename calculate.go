@@ -74,19 +74,45 @@ func Roman(number int) string {
 func main() {
 	var x, plus, y string
 	fmt.Scanln(&x, &plus, &y)
-	if x == "I" && y == "II" {
-		fir := romanToInt(x) + romanToInt(y)
-		fmt.Println(Roman(fir))
+	inted := [10]string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
+	roman := [10]string{"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"}
+	for i := 0; i < len(inted); i++ {
+		for j := 0; j < len(inted); j++ {
+			if x == inted[i] && y == inted[j] {
+				num1, num2 := parseInt(x, y)
+				switch plus {
+				case "+":
+					fmt.Println(add(num1, num2))
+				case "-":
+					fmt.Println(sub(num1, num2))
+				case "*":
+					fmt.Println(mul(num1, num2))
+				case "/":
+					fmt.Println(div(num1, num2))
+				}
+			}
+		}
 	}
-	num1, num2 := parseInt(x, y)
-	switch plus {
-	case "+":
-		fmt.Println(add(num1, num2))
-	case "-":
-		fmt.Println(sub(num1, num2))
-	case "*":
-		fmt.Println(mul(num1, num2))
-	case "/":
-		fmt.Println(div(num1, num2))
+	for i := 0; i < len(roman); i++ {
+		for j := 0; j < len(roman); j++ {
+			if x == roman[i] && y == roman[j] {
+				num1 := romanToInt(x)
+				num2 := romanToInt(y)
+				switch plus {
+				case "+":
+					rom := num1 + num2
+					fmt.Println(Roman(rom))
+				case "-":
+					rom := num1 - num2
+					fmt.Println(Roman(rom))
+				case "*":
+					rom := num1 * num2
+					fmt.Println(Roman(rom))
+				case "/":
+					rom := num1 / num2
+					fmt.Println(Roman(rom))
+				}
+			}
+		}
 	}
 }
