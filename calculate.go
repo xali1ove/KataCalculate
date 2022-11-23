@@ -104,6 +104,9 @@ func main() {
 					fmt.Println(Roman(rom))
 				case "-":
 					rom := num1 - num2
+					if rom < 0 {
+						fmt.Print("в римской системе нет отрицательных чисел")
+					}
 					fmt.Println(Roman(rom))
 				case "*":
 					rom := num1 * num2
