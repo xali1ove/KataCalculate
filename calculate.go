@@ -92,10 +92,6 @@ func Serotonin(x, plus, y string) {
 					fmt.Println(div(num1, num2))
 				}
 			}
-		}
-	}
-	for i := 0; i < len(roman); i++ {
-		for j := 0; j < len(roman); j++ {
 			if x == roman[i] && y == roman[j] {
 				num1 := romanToInt(x)
 				num2 := romanToInt(y)
@@ -129,11 +125,9 @@ func main() {
 	line = sc.Text()
 	arr := strings.Split(line, " ")
 	if len(arr) != 3 {
-		fmt.Println("не удовлетворяет математической операции")
+		fmt.Println("математическая операция только из двух элементов")
 		return
 	}
 	x, plus, y = arr[0], arr[1], arr[2]
 	Serotonin(x, plus, y)
 }
-
-//сначала превратить в инты
