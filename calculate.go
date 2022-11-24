@@ -1,8 +1,11 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
+	"os"
 	"strconv"
+	"strings"
 )
 
 func add(x, y int) int {
@@ -71,9 +74,7 @@ func Roman(number int) string {
 	return roman
 }
 
-func main() {
-	var x, plus, y string
-	fmt.Scanln(&x, &plus, &y)
+func Serotonin(x, plus, y string) {
 	inted := [10]string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
 	roman := [10]string{"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"}
 	for i := 0; i < len(inted); i++ {
@@ -119,3 +120,20 @@ func main() {
 		}
 	}
 }
+
+func main() {
+	var x, plus, y string
+	var line string
+	sc := bufio.NewScanner(os.Stdin)
+	sc.Scan()
+	line = sc.Text()
+	arr := strings.Split(line, " ")
+	if len(arr) != 3 {
+		fmt.Println("не удовлетворяет математической операции")
+		return
+	}
+	x, plus, y = arr[0], arr[1], arr[2]
+	Serotonin(x, plus, y)
+}
+
+//сначала превратить в инты
