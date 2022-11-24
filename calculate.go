@@ -8,30 +8,30 @@ import (
 	"strings"
 )
 
-func add(x, y int) int {
+func Add(x, y int) int {
 	return x + y
 }
 
-func sub(x, y int) int {
+func Sub(x, y int) int {
 	return x - y
 }
 
-func mul(x, y int) int {
+func Mul(x, y int) int {
 	return x * y
 }
 
-func div(x, y int) int {
+func Div(x, y int) int {
 	return x / y
 }
 
-func parseInt(x, y string) (int, int) {
+func ParseInt(x, y string) (int, int) {
 	var num1, num2 int
 	num1, _ = strconv.Atoi(x)
 	num2, _ = strconv.Atoi(y)
 	return num1, num2
 }
 
-func romanToInt(s string) int {
+func RomanToInt(s string) int {
 	var v, lv, cv int
 	h := map[uint8]int{
 		'I': 1,
@@ -52,7 +52,7 @@ func romanToInt(s string) int {
 	return v
 }
 
-func Roman(number int) string {
+func IntToRoman(number int) string {
 	conversions := []struct {
 		value int
 		digit string
@@ -74,44 +74,47 @@ func Roman(number int) string {
 	return roman
 }
 
-func Serotonin(x, plus, y string) {
+func Looperkal(x, plus, y string) {
 	inted := [10]string{"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"}
 	roman := [10]string{"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X"}
 	for i := 0; i < len(inted); i++ {
 		for j := 0; j < len(inted); j++ {
 			if x == inted[i] && y == inted[j] {
-				num1, num2 := parseInt(x, y)
+				num1, num2 := ParseInt(x, y)
 				switch plus {
 				case "+":
-					fmt.Println(add(num1, num2))
+					fmt.Println(Add(num1, num2))
 				case "-":
-					fmt.Println(sub(num1, num2))
+					fmt.Println(Sub(num1, num2))
 				case "*":
-					fmt.Println(mul(num1, num2))
+					fmt.Println(Mul(num1, num2))
 				case "/":
-					fmt.Println(div(num1, num2))
+					fmt.Println(Div(num1, num2))
 				}
 			}
 			if x == roman[i] && y == roman[j] {
-				num1 := romanToInt(x)
-				num2 := romanToInt(y)
+				num1 := RomanToInt(x)
+				num2 := RomanToInt(y)
 				switch plus {
 				case "+":
-					rom := num1 + num2
-					fmt.Println(Roman(rom))
+					rom := Add(num1, num2)
+					fmt.Println(IntToRoman(rom))
 				case "-":
-					rom := num1 - num2
+					rom := Sub(num1, num2)
 					if rom < 0 {
-						fmt.Print("в римской системе нет отрицательных чисел")
+						fmt.Print("Ошибка: в римской системе нет отрицательных чисел")
 					}
-					fmt.Println(Roman(rom))
+					fmt.Println(IntToRoman(rom))
 				case "*":
-					rom := num1 * num2
-					fmt.Println(Roman(rom))
+					rom := Mul(num1, num2)
+					fmt.Println(IntToRoman(rom))
 				case "/":
-					rom := num1 / num2
-					fmt.Println(Roman(rom))
+					rom := Div(num1, num2)
+					fmt.Println(IntToRoman(rom))
 				}
+			}
+			if (x == roman[i] && y == inted[j]) || (x == inted[i] && y == roman[j]) {
+				fmt.Println("Ошибка: разные типы счисления")
 			}
 		}
 	}
@@ -125,9 +128,9 @@ func main() {
 	line = sc.Text()
 	arr := strings.Split(line, " ")
 	if len(arr) != 3 {
-		fmt.Println("математическая операция только из двух элементов")
+		fmt.Println("Ошибка: математическая операция должна состоять из двух элементов")
 		return
 	}
 	x, plus, y = arr[0], arr[1], arr[2]
-	Serotonin(x, plus, y)
+	Looperkal(x, plus, y)
 }
