@@ -91,6 +91,7 @@ func Looperkal(x, plus, y string) {
 				case "/":
 					fmt.Println(Div(num1, num2))
 				}
+				fmt.Println("не существующий знак математической операции")
 			}
 			if x == roman[i] && y == roman[j] {
 				num1 := RomanToInt(x)
@@ -101,8 +102,8 @@ func Looperkal(x, plus, y string) {
 					fmt.Println(IntToRoman(rom))
 				case "-":
 					rom := Sub(num1, num2)
-					if rom < 0 {
-						fmt.Print("Ошибка: в римской системе нет отрицательных чисел")
+					if rom < 1 {
+						fmt.Print("Ошибка: в римской системе нет отрицательных чисел и нуля")
 					}
 					fmt.Println(IntToRoman(rom))
 				case "*":
@@ -112,6 +113,7 @@ func Looperkal(x, plus, y string) {
 					rom := Div(num1, num2)
 					fmt.Println(IntToRoman(rom))
 				}
+				fmt.Println("не существующий знак математической операции")
 			}
 			if (x == roman[i] && y == inted[j]) || (x == inted[i] && y == roman[j]) {
 				fmt.Println("Ошибка: разные типы счисления")
