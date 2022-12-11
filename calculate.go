@@ -57,6 +57,10 @@ func IntToRoman(number int) string {
 		value int
 		digit string
 	}{
+		{100, "C"},
+		{90, "XC"},
+		{50, "L"},
+		{40, "XL"},
 		{10, "X"},
 		{9, "IX"},
 		{5, "V"},
@@ -91,7 +95,6 @@ func Looperkal(x, plus, y string) {
 				case "/":
 					fmt.Println(Div(num1, num2))
 				}
-				fmt.Println("не существующий знак математической операции")
 			}
 			if x == roman[i] && y == roman[j] {
 				num1 := RomanToInt(x)
@@ -113,7 +116,6 @@ func Looperkal(x, plus, y string) {
 					rom := Div(num1, num2)
 					fmt.Println(IntToRoman(rom))
 				}
-				fmt.Println("не существующий знак математической операции")
 			}
 			if (x == roman[i] && y == inted[j]) || (x == inted[i] && y == roman[j]) {
 				fmt.Println("Ошибка: разные типы счисления")
