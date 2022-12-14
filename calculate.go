@@ -28,6 +28,7 @@ func ParseInt(x, y string) (int, int) {
 	var num1, num2 int
 	num1, _ = strconv.Atoi(x)
 	num2, _ = strconv.Atoi(y)
+
 	return num1, num2
 }
 
@@ -94,9 +95,10 @@ func Looperkal(x, plus, y string) {
 					fmt.Println(Mul(num1, num2))
 				case "/":
 					fmt.Println(Div(num1, num2))
+				default:
+					fmt.Println("Ошибка: не соответствует математической операции")
 				}
-			}
-			if x == roman[i] && y == roman[j] {
+			} else if x == roman[i] && y == roman[j] {
 				num1 := RomanToInt(x)
 				num2 := RomanToInt(y)
 				switch plus {
@@ -115,6 +117,8 @@ func Looperkal(x, plus, y string) {
 				case "/":
 					rom := Div(num1, num2)
 					fmt.Println(IntToRoman(rom))
+				default:
+					fmt.Println("Ошибка: не соответствует математической операции")
 				}
 			}
 			if (x == roman[i] && y == inted[j]) || (x == inted[i] && y == roman[j]) {
@@ -136,5 +140,7 @@ func main() {
 		return
 	}
 	x, plus, y = arr[0], arr[1], arr[2]
+
 	Looperkal(x, plus, y)
+
 }
