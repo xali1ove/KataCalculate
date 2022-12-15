@@ -38,6 +38,10 @@ func RomanToInt(s string) int {
 		'I': 1,
 		'V': 5,
 		'X': 10,
+		'L': 50,
+		'C': 100,
+		'D': 500,
+		'M': 1000,
 	}
 
 	for i := len(s) - 1; i >= 0; i-- {
@@ -140,7 +144,14 @@ func main() {
 		return
 	}
 	x, plus, y = arr[0], arr[1], arr[2]
-
+	x1, y1 := ParseInt(x, y)
+	x2 := RomanToInt(x)
+	y2 := RomanToInt(y)
+	if x1 > 10 || y1 > 10 || x1 < 0 || y1 < 0 {
+		fmt.Println("Ошибка: числа находятся в диапозоне от 1 до 10")
+	}
+	if x2 > 10 || y2 > 10 || x2 < 0 || y2 < 0 {
+		fmt.Println("Ошибка: числа находятся в диапозоне от 1 до 10")
+	}
 	Looperkal(x, plus, y)
-
 }
